@@ -1,0 +1,33 @@
+<%= form_for(@wing_order) do |f|  %>
+   <div class="row">
+     <%= f.label :customer_name %><br>
+     <%= f.text_field :customer_name %>
+   </div>
+
+   <div class="row">
+     <%= f.label :city %><br>
+     <%= f.text_field :city %>
+   </div>
+
+   <div class="row">
+     <%= f.label :state %><br>
+     <%= f.collection_select(:state, @state_collection, :last, :first) %>
+   </div>
+
+   <div class="row">
+     <%= f.collection_radio_buttons(:quantity, @quantity_collection, :first, :last) %>
+   </div>
+
+   <div class="row">
+     <%= f.label(:ranch_dressing, "Add Ranch Dressing") %>
+     <%= f.check_box(:ranch_dressing) %>
+   </div>
+
+   <div class="row">
+     <%= f.collection_check_boxes(:flavor_ids, @flavors, :id, :name) %>
+   </div>
+
+   <div class="actions">
+     <%= f.submit %>
+   </div>
+<% end %>
